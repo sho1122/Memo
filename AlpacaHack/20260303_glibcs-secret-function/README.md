@@ -37,6 +37,7 @@ int main()
 
 ```
 main.cを見るとmemfrobが使われてました。
+
 ```
 memfrob(work, len);
 ```
@@ -44,10 +45,14 @@ work : 処理するメモリの先頭アドレス
 
 len : 処理するバイト数
 
-work から len バイト分の各データに XOR 0x2Aを行う
+workからlenバイト分の各データに0x2AでXORを行う
 
-XORなのでもう一度XORすると元に戻ります。この性質を利用して、main2.cを作成し実行するとフラグが見つかります。
-
+XORなのでもう一度XORすると元に戻ります。
+```
+memfrob(data, len); // 暗号化
+memfrob(data, len); // 復号
+```
+この性質を利用して、main2.cを作成し実行するとフラグが見つかります。XORはC言語では^と表します。
 ```
 // gcc -o chal2 main2.c
 
