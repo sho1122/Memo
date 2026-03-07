@@ -4,6 +4,65 @@
 
 https://alpacahack.com/daily/challenges/high-and-low?month=2026-03
 
+```
+import os
+import secrets
+import signal
+
+class RNG:
+    N = 624
+    M = 397
+    UPPER_MASK = 0x80000000
+    LOWER_MASK = 0x7FFFFFFF
+
+    def __init__(self):
+        self.state = [secrets.randbits(32) for _ in range(self.N)]
+        self.p = 0
+
+    def next_value(self):
+        p, q, r = self.p, (self.p+1) % self.N, (self.p + self.M) % self.N
+        a = self.state[p] & self.UPPER_MASK
+        b = self.state[q] & self.LOWER_MASK
+        x = (a | b) ^ self.state[r]
+
+        self.state[p] = x
+        self.p = q
+
+        y = ((x >> 11) | ((x << 21) & 0xFFFFF800)) ^ 0xDEADBEEF
+        return y
+
+signal.alarm(600)
+
+rng = RNG()
+
+money = rng.N
+while True:
+    print(f"money: {money}")
+    if money < 0:
+        print("bankrupt!")
+        exit()
+    if money > 1337:
+        flag = os.environ.get("FLAG", "Alpaca{REDACTED}")
+        print("rich man!")
+        print(flag)
+        exit()
+
+    value = rng.next_value()
+    print(f"value: {value}")
+
+    choice = input("high or low? ")
+    print(f"[{choice}]")
+
+    next_value = rng.next_value()
+    print(f"next: {next_value}")
+    if  (choice == "h") == (value < next_value):
+        print("you win")
+        money += 1
+    else:
+        print("you lose")
+        money -= 1
+```
+
 ## 解法
 
 0x80000000を2進数で表すと
