@@ -113,6 +113,14 @@ x >> 11 : 右に 11 ビットシフト
 ((x << 21) & 0xFFFFF800))  : 左に 21 ビットシフトして、上位ビットだけ残す
 
 
+from pwn import *を使う際のためにBashで以下を実行
+```
+sudo apt install python3.12-venv
+python3 -m venv venv
+source venv/bin/activate
+pip3 install pwntools
+```
+
 以下を実行してフラグを求める。
 ```
 import os
@@ -304,7 +312,6 @@ while True:
     p=p+1
 
 ```
-
 
 
 
