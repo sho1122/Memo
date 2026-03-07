@@ -120,6 +120,10 @@ python3 -m venv venv
 source venv/bin/activate
 pip3 install pwntools
 ```
+※仮想環境から抜ける場合
+```
+deactivate
+```
 
 以下を実行してフラグを求める。
 ```
